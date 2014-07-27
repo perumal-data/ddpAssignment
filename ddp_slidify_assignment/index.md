@@ -1,15 +1,15 @@
 ---
-title       : Simulate Distributions using Shiny
+title       : Simulate Distributions Using Shiny
 subtitle    : 
 author      : 
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
+highlighter : highlight     # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
----
+--- 
 
 ## Supported Distribution Types 
 
@@ -19,9 +19,14 @@ Following distribution types are supported by this Shiny App
 2. Uniform
 3. Exponential
 
-Display dynamically changes based on user selections to enable user to study the distributions interactively.
+Display with following detailsdynamically changes based on user selections to enable user to study the distributions interactively. 
 
---- 
+1. Summary data
+2. Distribution Histogram
+3. Density plot
+
+--- .class1 #id1 bg:#D8D8D8 
+
 ## Look and feel
 
 The App uses CSS file named bootstrap.css downloaded from Bootswatch, a great place to get free CSS themes for bootstrap webpages.
@@ -30,33 +35,39 @@ The App uses CSS file named bootstrap.css downloaded from Bootswatch, a great pl
     <img height='500' src='assets\img\1.png' />
 </div>
 
----
+--- .class1 #id1 bg:#D8D8D8
 
-## Slider
+## Widgets
 
-You can use the slider to select the number of bins in Historgram
+<h3>Slider:</h3>
 
-<div style='text-align: center;'>
-    <img height='500' src='assets\img\1.png' />
-</div>
+You can use the slider to select the number of bins in Historgram. Default number of bins is 20.
+ 
+<h3>Number of Points:</h3>
 
---- 
-## Number of Points
+You can slelect  number of data points between 2000 to 10000. Default number of points will be 5000.
 
-You can slelect  number of data points between 2000 to 10000. 
-Defaylt number of points will be 5000.
-
-<div style='text-align: center;'>
-    <img height='500' src='assets\img\1.png' />
-</div>
-
---- 
-## Plot Density
+<h3>Plot Density:</h3>
 
 You can plot density curve of the distribution by selecting the check box.
 
-<div style='text-align: center;'>
-    <img height='500' src='assets\img\1.png' />
-</div>
+---  .class1 #id1 bg:#D8D8D8
+
+## Sample calculations with default values
 
 
+```r
+currData <- rnorm(2000)
+summary(currData )
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  -3.460  -0.639   0.007   0.030   0.730   3.140
+```
+
+```r
+hist(currData, breaks = 30)
+```
+
+![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
